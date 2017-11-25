@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+	<div class="main">
+		<header>
+			<div class="header_child"></div>
+			<div class="header_child"></div>
+			<div class="header_child"></div>
+		</header>
+		<article>
+			<div class="content_child"></div>
+			<div class="content_child_video">
+				 <video  poster="home_3.jpg">
+       					 <source src="SAHDAG QIS-YAY TURIZM KOMPLEKSI  24 01 13.mp4" />
+    			</video>
+			</div>
+			<div class="content_child"></div>
+		</article>
+		<footer>
+			<div class="footer_child">
+				<p id="pause">PAUSE</p>
+			</div>
+			<div class="footer_child"></div>
+			<div class="footer_child">
+				<p id="play">PLAY</p>
+			</div>
+		</footer>
+	</div>
+	 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+</body>
+</html>
+
+<script type="text/javascript">
+	var Video = document.getElementsByTagName("video")[0];
+
+    console.log($(Video).css("width"))
+
+	// var pause = document.getElementById("pause");
+	// var play = document.getElementById("play");
+
+	if(localStorage.currentTime){
+		Video.currentTime=localStorage.currentTime;
+	}
+	
+
+	 // play.addEventListener("click", function(){
+	 // 	 Video.play();
+
+	 // })
+	 //  pause.addEventListener("click", function(){
+	 // 	 Video.pause();
+	 // })
+
+	 $("#play").click(function(){
+	 	Video.play();
+	 })
+	 $("#pause").click(function(){
+	 	Video.pause();
+	 })
+
+	  Video.ontimeupdate=function(){
+	  localStorage.currentTime=Video.currentTime;
+	  }
+
+	
+
+</script>
+
